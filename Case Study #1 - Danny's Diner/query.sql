@@ -83,4 +83,42 @@
 | ------------ | ----- |
 | ramen        | 8     |
 
+
+**5. Which item was the most popular for each customer?**
+
+    WITH partitioned AS (SELECT customer_id,
+                   product_id,
+                   count(product_id) as contagem,
+                          DENSE_RANK() OVER(PARTITION BY customer_id
+                                    ORDER BY count(product_id) DESC) AS ranking
+                  
+            FROM dannys_diner.sales
+            group by customer_id,
+                   product_id
+            ) 
+            
+      SELECT partitioned.customer_id,
+             menu.product_name,
+             partitioned.contagem 
+    from partitioned
+    INNER JOIN dannys_diner.menu ON partitioned.product_id = menu.product_id
+    where partitioned.ranking = 1
+    
+    order by partitioned.customer_id;
+
+| customer_id | product_name | contagem |
+| ----------- | ------------ | -------- |
+| A           | ramen        | 3        |
+| B           | sushi        | 2        |
+| B           | curry        | 2        |
+| B           | ramen        | 2        |
+| C           | ramen        | 3        |
+
+---
+
+
+
+
+
+
 ---
