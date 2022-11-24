@@ -160,5 +160,22 @@
 | B           | curry        | 1       |
 
 ---
+**8. What is the total items and amount spent for each member before they became a member?**
+
+    select sales.customer_id,SUM(menu.price) AS sum_price,count(*) AS contagem_itens 
+        FROM dannys_diner.sales
+                INNER JOIN dannys_diner.menu ON sales.product_id = menu.product_id
+                INNER JOIN dannys_diner.members ON sales.customer_id = members.customer_id
+                WHERE sales.order_date < members.join_date  
+        
+       
+        group by sales.customer_id;
+
+| customer_id | sum_price | contagem_itens |
+| ----------- | --------- | -------------- |
+| B           | 40        | 3              |
+| A           | 25        | 2              |
+
+---
 
 
