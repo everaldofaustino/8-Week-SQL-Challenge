@@ -115,10 +115,26 @@
 | C           | ramen        | 3        |
 
 ---
+**6. Which item was purchased first by the customer after they became a member?**
 
+    WITH partitioned AS (SELECT sales.customer_id,
+                       menu.product_name,
+                       DENSE_RANK() OVER(PARTITION BY sales.customer_id
+                                        ORDER BY order_date) AS ranking
+                      
+                FROM dannys_diner.sales
+                INNER JOIN dannys_diner.menu ON sales.product_id = menu.product_id
+                INNER JOIN dannys_diner.members ON sales.customer_id = members.customer_id
+                WHERE sales.order_date >= members.join_date                     
+                
+                ) 
+        select * from partitioned
+        where partitioned.ranking = 1;
 
-
-
-
+| customer_id | product_name | ranking |
+| ----------- | ------------ | ------- |
+| A           | curry        | 1       |
+| B           | sushi        | 1       |
 
 ---
+
