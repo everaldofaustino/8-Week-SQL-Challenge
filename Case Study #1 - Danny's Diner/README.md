@@ -1,4 +1,4 @@
-# 8-Week-SQL-Challenge -- My [**solution**]([https://github.com/everaldofaustino/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner](https://github.com/everaldofaustino/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner/query.sql))
+# 8-Week-SQL-Challenge -- My [**solution**](https://github.com/everaldofaustino/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner/query.sql)
 
 
 <img src="https://user-images.githubusercontent.com/81607668/127727503-9d9e7a25-93cb-4f95-8bd0-20b87cb4b459.png" alt="Image" width="500" height="520">
