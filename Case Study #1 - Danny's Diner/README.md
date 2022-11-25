@@ -29,9 +29,7 @@
 
 <h2 id="entity-relationship-diagram">Entity Relationship Diagram</h2>
 
-<div class="dbdiagram-container">
-<iframe src="https://dbdiagram.io/embed/608d07e4b29a09603d12edbd"> </iframe>
-</div>
+![image](https://user-images.githubusercontent.com/81607668/127271130-dca9aedd-4ca9-4ed8-b6ec-1e1920dca4a8.png)
 
 <h2 id="example-datasets">Example Datasets</h2>
 
