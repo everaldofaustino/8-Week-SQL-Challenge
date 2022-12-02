@@ -129,4 +129,11 @@
 | 14    |
 
 ---
+**Q2-How many unique customer orders were made?**
 
+    SELECT count(distinct order_id) FROM pizza_runner.customer_orders;
+
+| count |
+| ----- |
+| 10    |
+ ---
