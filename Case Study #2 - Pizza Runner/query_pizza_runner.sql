@@ -116,7 +116,7 @@
       (11, 'Tomatoes'),
       (12, 'Tomato Sauce');
 ---
-# A. Pizza Metrics
+*** A. Pizza Metrics ***
 
 ---
 
