@@ -140,10 +140,8 @@
 **Q3. How many successful orders were delivered by each runner?**
 
 With temporaria As
-    (
-    select runner_id, case when cancellation is null then ''  when cancellation='null' then '' else cancellation end as cancellation
-    from  pizza_runner.runner_orders)
-    
+    (select runner_id, case when cancellation is null then ''  when cancellation='null' then '' else cancellation end as cancellation
+    from  pizza_runner.runner_orders)    
     select runner_id,count(runner_id) from temporaria
     where cancellation!='Customer Cancellation' and cancellation!= 'Restaurant Cancellation'
     group by runner_id
