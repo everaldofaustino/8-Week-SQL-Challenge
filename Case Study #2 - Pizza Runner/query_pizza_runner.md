@@ -155,3 +155,20 @@
 | 3         | 1     |
 
 ---
+**Q4. How many of each type of pizza was delivered?**
+
+    With temporaria As(
+    select runner_orders.order_id,customer_orders.pizza_id,pizza_names.pizza_name, case when cancellation is null then ''  when cancellation='null' then     '' else cancellation end as cancellation
+    from  pizza_runner.runner_orders
+    inner join pizza_runner.customer_orders on runner_orders.order_id = customer_orders.order_id
+    inner join pizza_runner.pizza_names on customer_orders.pizza_id = pizza_names.pizza_id)
+    
+    select pizza_name,count(pizza_id) from temporaria
+    where cancellation!='Customer Cancellation' and cancellation!= 'Restaurant Cancellation'
+    group by pizza_name
+    order by pizza_name;
+
+| pizza_name | count |
+| ---------- | ----- |
+| Meatlovers | 9     |
+| Vegetarian | 3     |
