@@ -173,12 +173,12 @@
 | Meatlovers | 9     |
 | Vegetarian | 3     |
 
---
 
 **Q5. How many Vegetarian and Meatlovers were ordered by each customer?**
 
 SELECT customer_id, sum(case when pizza_id = 1 then 1 else 0 end) as Meat_Lovers,
 sum(case when pizza_id = 2 then 1 else 0 end) as Vegetarian
+
 from  pizza_runner.customer_orders
 group by customer_id
 order by customer_id asc;
